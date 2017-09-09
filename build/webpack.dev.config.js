@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const utils = require('./utils')
 
 
 module.exports = {
@@ -17,5 +18,10 @@ module.exports = {
 			new webpack.WatchIgnorePlugin([
 				path.join(__dirname, 'node_modules')
 			])
-		]
+		],
+		module:{
+			rules: utils.styleLoader({
+				sourceMap: true
+			})
+		}
 }

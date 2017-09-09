@@ -12,27 +12,40 @@ module.exports = {
 	},
 	plugins: [
 				new HtmlWebpackPlugin({
-					title: 'Webpack demo',
+					title: 'WebpackTest',
 					filename: 'index.html'
 				})
 
 	],
 	module: {
 		rules: [
-				{
-				test:/\.css$/,
-		        use: [
-				         {
-				           loader: "style-loader"
-				         },
-				         {
-				           loader: "css-loader",
-				           options: {
-				             modules: true
-				           }
-				         }
-				    ]
-				}
-			]
-	}
+					{
+					test:/\.css$/,
+			        use: [
+					         {
+					           loader: "style-loader"
+					         },
+					         {
+					           loader: "css-loader",
+					           options: {
+					             modules: true,
+					             
+					           }
+					         }
+					    ]
+					},
+					{
+		            test: /\.styl$/,
+		            use: [
+		            		{
+			                	loader: "style-loader" // creates style nodes from JS strings
+			            	}, {
+			                	loader: "css-loader" // translates CSS into CommonJS
+			           		}, {
+			                	loader: "stylus-loader" // compiles Sass to CSS
+	            			}
+						]
+					}
+				]
+			}
 }
