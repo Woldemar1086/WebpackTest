@@ -13,7 +13,8 @@ module.exports = {
 	plugins: [
 				new HtmlWebpackPlugin({
 					title: 'WebpackTest',
-					filename: 'index.html'
+					filename: 'index.html',
+					css: ['./css/style.css']
 				})
 
 	],

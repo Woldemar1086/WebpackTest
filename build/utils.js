@@ -3,6 +3,7 @@ var extractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 function cssLoader(options) {
+	options = options || {}
 
 	let cssLoader = {
 		loader: 'css-loader',
@@ -11,18 +12,17 @@ function cssLoader(options) {
 			modules: true,
 			sourceMap: options.sourceMap,
 		}
-	}
-	console.log(options)
+	};
 
 
 	function genLoaders(loader){
 		let loaders = [cssLoader];
 		if (loader){
 			loaders.push({
-			loader: loader,
-			options:{
-				sourceMap: options.sourceMap,
-			}
+				loader: loader,
+				options:{
+					sourceMap: options.sourceMap,
+				}
 			})
 		}
 		if (options.extract){
@@ -44,10 +44,10 @@ exports.styleLoader =  function(options){
 	let output = [];
 	let loaders = cssLoader(options);
 
-	for (let ext in loaders){
-		let loader = loaders[ext];
+	for (let extentions in loaders){
+		let loader = loaders[extentions];
 		output.push({
-			test: new RegExp('\\.'+ext+'$'),
+			test: new RegExp('/\.'+extentions+'$'),
 			use: loader,
 		});
 	}

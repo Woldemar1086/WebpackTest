@@ -21,7 +21,7 @@ module.exports = {
 		],
 		module:{
 			rules: utils.styleLoader({
-				sourceMap: true
+				sourceMap: false
 			})
 		}
 }

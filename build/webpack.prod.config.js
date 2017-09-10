@@ -1,12 +1,13 @@
-var path = require('path');
+const path = require('path');
 const utils = require('./utils');
-var extractTextPlugin = require('extract-text-webpack-plugin');
+const extractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
 	module:{
 			rules: utils.styleLoader({
 				sourceMap: true,
+				extract: true,
 			})
 		},
 	devtool: '#sourse-map',
@@ -16,7 +17,7 @@ module.exports = {
 	},
 	plugins: [
 		new extractTextPlugin({
-			filename: 'css/style.css',
-		}),
+			filename: 'css/style.css'
+		})
 	]
 }
