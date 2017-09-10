@@ -9,8 +9,8 @@ function cssLoader(options) {
 		loader: 'css-loader',
 		options: {
 			minimize: options.extract,
-			modules: true,
 			sourceMap: options.sourceMap,
+			modules: true,
 		}
 	};
 
@@ -47,7 +47,7 @@ exports.styleLoader =  function(options){
 	for (let extentions in loaders){
 		let loader = loaders[extentions];
 		output.push({
-			test: new RegExp('/\.'+extentions+'$'),
+			test: new RegExp('\\.'+extentions+'$'),
 			use: loader,
 		});
 	}

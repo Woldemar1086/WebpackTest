@@ -1,9 +1,11 @@
 const path = require('path');
 const utils = require('./utils');
+const baseconfig = require('./webpack.base.config');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-module.exports = {
+module.exports = merge(baseconfig ,{
 	module:{
 			rules: utils.styleLoader({
 				sourceMap: true,
@@ -20,4 +22,4 @@ module.exports = {
 			filename: 'css/style.css'
 		})
 	]
-}
+})
