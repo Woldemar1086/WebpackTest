@@ -1,14 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const utils = require('./utils')
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.config');
 
 
-module.exports = {
+module.exports = merge(baseConfig,{
 	devServer: {
 			historyApiFallback: true,
 			stats: 'errors-only',
 			host: process.env.HOST,
-			port: 3000,
+			port: process.env.PORT,
 			watchOptions: {
 				aggregateTimeout: 300,
 				poll: 1000,
@@ -24,4 +26,4 @@ module.exports = {
 				sourceMap: false
 			})
 		}
-}
+})
